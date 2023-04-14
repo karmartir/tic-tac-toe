@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import BoardRender from "./BoardRender";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [game, setGame] = useState(new Array(9).fill(null))
+    const[symbol, setSymbol] = useState('X')
+
+    const move = (value, index) => {
+    if(value === null) {
+
+        const newGame = game.map((elem, i) => (i === index) ? symbol : elem)
+        setSymbol((symbol === 'X') ? "0" : "X")
+        setGame(newGame)
+    }
+    }
+
+
+    return (
+        <div className="App">
+            <h1 className='header'>Tic Tac Toe</h1>
+           <div>
+            <BoardRender game={game} move={move}/>
+           </div>
+        </div>
+    );
 }
 
 export default App;
