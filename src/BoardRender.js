@@ -2,11 +2,17 @@ import React from 'react';
 import Square from "./Square";
 
 const BoardRender = (props) => {
-    const {game, move} = props
+   const {board, step, winner} = props
 
     return (
         <div className='board'>
-            {game.map((elem, index) => <Square value={elem} move={move} index={index}/>)}
+            {board.map((elem, index) =>
+                <Square
+                    value={elem}
+                    step={step}
+                    index={index}
+                    winner={winner}
+                />)}
         </div>
     );
 };

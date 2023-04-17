@@ -30,3 +30,14 @@
 .value {
   color: #0f89e7;
 }
+
+.winner {
+  color: red;
+  font-size: 25px;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 25px;
+}
+
